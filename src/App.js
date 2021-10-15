@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import MyForm from './components/myform'
+import Greetings from './components/greetings'
+import './styles/theme/theme.scss'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div className="page__wrap">
+      <Greetings/>
+      <MyForm/>
+      </div>
+ );
 }
 
 export default App;
