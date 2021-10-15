@@ -1,7 +1,7 @@
 # About this project
 
 This project has been created in React. Apart from basic react commands, I also used axios library to connect to API and sass(scss syntax) to style components.
-In this project functional components has been used. I used useState hooks to create a state inside
+Functional components has been used in this project. I also used useState hook to create a state inside
 
 # Time it tooks me to perform the task
 
