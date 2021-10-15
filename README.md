@@ -1,3 +1,10 @@
+# About this project
+
+## Used  technologies and libraries
+
+This project is created in React. Apart from basic react commands, I also used axios library to connect to API and sass(scss syntax) to style components.
+In this project functional components has been used. I used useState hooks to create a state inside
+
 # How to set up a project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,10 +75,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# About this project
-
-##Used  technologies and libraries
-
-This project is created in React. Apart from basic react commands, I also used axios library to connect to API and sass(scss syntax) to style components.
-In this project functional components has been used. I used useState hooks to create a state inside
