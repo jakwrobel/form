@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# About this project
+
+This project has been created in React. Apart from basic react commands, I also used axios library to connect to API and sass(scss syntax) to style components.
+In this project functional components has been used. I used useState hooks to create a state inside
+
+# How to set up a project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -9,7 +14,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3002](http://localhost:3002) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
