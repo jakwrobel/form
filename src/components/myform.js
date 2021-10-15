@@ -6,7 +6,7 @@ const MyForm = ()=>{
 const [formState,changeState] = useState({name:"",
                                         preparation_time:"",
                                         type:"",
-                                        no_of_slices:0,
+                                        no_of_slices:"",
                                         diameter:"",
                                         spiciness_scale:"",
                                         slices_of_bread:"",
@@ -35,7 +35,7 @@ const validateForm = ()=>{
     let {nameError, preparation_timeError, typeError, no_of_slicesError, diameterError, spiciness_scaleError, slices_of_breadError} = initialErrors
 
     if(!formState.name){
-        nameError="Name is empty!"
+        nameError="Dish name is empty!"
         changeState(prevState=>({...prevState, ...initialErrors, nameError}))
         return false
     }
@@ -104,13 +104,15 @@ const handleSubmit = event=>{
 }
 
     return(
-        <div>
-        <form onSubmit={event=>handleSubmit(event)}>
+        <div className="myForm__wrap">
+        <form onSubmit={event=>handleSubmit(event)} className="myForm">
         <input 
             name="name" 
             type="text" 
             value={formState.name} 
+            placeholder="Dish name"
             onChange={event=>{changeState(prevState=>({...prevState, name: event.target.value}))}}
+            className="input__text"
         />
         <div className="input__error-message">{formState.nameError}</div>
         <input 
@@ -118,38 +120,74 @@ const handleSubmit = event=>{
             type="time" step="1" 
             placeholder="HH:MM:SS" 
             value={formState.preparation_time} 
+            placeholder="Preparation time"
             onChange={event=>{changeState(prevState=>({...prevState, preparation_time: event.target.value}))}}
+            className="input__time"
         />
         <div className="input__error-message">{formState.preparation_timeError}</div>
         <select 
             name="type" 
             value={formState.type} 
-            onChange={event=>{changeState(prevState=>({...prevState, type: event.target.value}))}}>
-                <option></option>
-                <option>pizza</option>
-                <option>soup</option>
-                <option>sandwich</option>
+            onChange={event=>{changeState(prevState=>({...prevState, type: event.target.value}))}}
+            className="input__select"
+        >
+                <option className="input__option" value="">Select dish type</option>
+                <option className="input__option">pizza</option>
+                <option className="input__option">soup</option>
+                <option className="input__option">sandwich</option>
         </select>
         <div className="input__error-message">{formState.typeError}</div>
         {formState.type=="pizza" ? 
         <>
-        <input name="no_of_slices" type="number" value={formState.no_of_slices} onChange={event=>{changeState(prevState=>({...prevState, no_of_slices:event.target.valueAsNumber}))}}/>
+        <input 
+            name="no_of_slices" 
+            type="number" 
+            value={formState.no_of_slices} 
+            onChange={event=>{changeState(prevState=>({...prevState, no_of_slices:event.target.valueAsNumber}))}}
+            className="input__text"
+            placeholder="Number of slices"   
+        />
         <div className="input__error-message">{formState.no_of_slicesError}</div>
-        <input name="diameter" type="number" value={formState.diameter} onChange={event=>{changeState(prevState=>({...prevState, diameter:event.target.valueAsNumber}))}}/>
+        <input 
+            name="diameter" 
+            type="number" 
+            value={formState.diameter} 
+            onChange={event=>{changeState(prevState=>({...prevState, diameter:event.target.valueAsNumber}))}}
+            className="input__text"
+            placeholder="Pizza's diameter"    
+        />
         <div className="input__error-message">{formState.diameterError}</div>
         </>
         : formState.type=="soup" ?
         <>
-        <input name="spiciness_scale" type="number" value={formState.spiciness_scale} onChange={event=>{changeState(prevState=>({...prevState, spiciness_scale:event.target.valueAsNumber}))}}/>
+        <input 
+            name="spiciness_scale" 
+            type="number" 
+            value={formState.spiciness_scale} 
+            onChange={event=>{changeState(prevState=>({...prevState, spiciness_scale:event.target.valueAsNumber}))}}
+            className="input__text"
+            placeholder="Spiciness scale (1-10)"
+        />
         <div className="input__error-message">{formState.spiciness_scaleError}</div>
         </>
-        : 
+        : formState.type=="sandwich" ?
         <>
-        <input name="slices_of_bread" type="number" value={formState.slices_of_bread} onChange={event=>{changeState(prevState=>({...prevState, slices_of_bread:event.target.valueAsNumber}))}}/>
+        <input 
+            name="slices_of_bread" 
+            type="number" 
+            value={formState.slices_of_bread} 
+            onChange={event=>{changeState(prevState=>({...prevState, slices_of_bread:event.target.valueAsNumber}))}}
+            className="input__text"
+            placeholder="Amount of bread slices"
+        />
         <div className="input__error-message">{formState.slices_of_breadError}</div>
         </>
+        : null
     }
-    <button type="submit">Submit</button>
+    <button 
+        type="submit"
+        className="input__submit"
+    >Submit</button>
     </form>
         </div>
     )

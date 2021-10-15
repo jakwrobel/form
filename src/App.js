@@ -1,11 +1,13 @@
 import MyForm from './components/myform'
+import Greetings from './components/greetings'
+import './styles/theme/theme.scss'
 
 function App() {
   return (
-    <div className="Page-wrap">
+    <div className="page__wrap">
+      <Greetings/>
       <MyForm/>
-    </div>
-  );
+      </div>
+ );
 }
-
 export default App;

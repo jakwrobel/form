@@ -1,0 +1,13 @@
+@mixin setFlex($direction,$justify,$align, $wrap:nowrap){
+	display:flex;
+	flex-flow: $direction $wrap;
+	justify-content:$justify;
+	align-items:$align;
+}
+
+@mixin borderRadius($first, $second){
+	border-top-right-radius: $first $second;
+    border-bottom-right-radius: $first $second;
+    border-top-left-radius: $first $second;
+    border-bottom-left-radius: $first $second;
+}
