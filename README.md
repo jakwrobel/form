@@ -3,6 +3,10 @@
 This project has been created in React. Apart from basic react commands, I also used axios library to connect to API and sass(scss syntax) to style components.
 In this project functional components has been used. I used useState hooks to create a state inside
 
+# Time it tooks me to perform the task
+
+It tooks me one day.
+
 # How to set up a project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
