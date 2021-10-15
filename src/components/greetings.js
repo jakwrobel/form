@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const Greetings = ()=> {
+const Greetings = () => {
   return (
     <div className="greetings">
       Welcome to our restaurant. Please fill the form below to order a dish.
-      </div>
- );
-}
+    </div>
+  );
+};
 
 export default Greetings;
