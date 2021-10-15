@@ -1,8 +1,6 @@
 # About this project
 
-## Used  technologies and libraries
-
-This project is created in React. Apart from basic react commands, I also used axios library to connect to API and sass(scss syntax) to style components.
+This project has been created in React. Apart from basic react commands, I also used axios library to connect to API and sass(scss syntax) to style components.
 In this project functional components has been used. I used useState hooks to create a state inside
 
 # How to set up a project
