@@ -1,11 +1,12 @@
 import React,{useState, useRef, useEffect} from 'react'
+import axios from 'axios'
 
 const MyForm = ()=>{
 
 const [formState,changeState] = useState({name:"",
                                         preparation_time:"",
                                         type:"",
-                                        no_of_slices:"",
+                                        no_of_slices:0,
                                         diameter:"",
                                         spiciness_scale:"",
                                         slices_of_bread:"",
@@ -17,7 +18,9 @@ const [formState,changeState] = useState({name:"",
                                         spiciness_scaleError:"",
                                         slices_of_breadError:""})
 
-
+const sendData=()=>{
+    axios.post("https://frosty-wood-6558.getsandbox.com:443/dishes", formState).then(res=>console.log(res.data)).catch(err=>console.log(err.response, err.response.status))
+}
 
 const validateForm = ()=>{
     let initialErrors=
@@ -49,7 +52,7 @@ const validateForm = ()=>{
         return false
     }
 
-    if(formState.type=="Pizza"){
+    if(formState.type=="pizza"){
         if(!formState.no_of_slices){
             no_of_slicesError="Set number of slices"
             changeState(prevState=>({...prevState, ...initialErrors, no_of_slicesError}))
@@ -63,7 +66,7 @@ const validateForm = ()=>{
         }
     }
 
-    if(formState.type=="Soup"){
+    if(formState.type=="soup"){
         if(!formState.spiciness_scale){
             spiciness_scaleError="Choose spiciness of the soup"
             changeState(prevState=>({...prevState, ...initialErrors, spiciness_scaleError}))
@@ -77,7 +80,7 @@ const validateForm = ()=>{
         }
     }
 
-    if(formState.type=="Sandwich"){
+    if(formState.type=="sandwich"){
         if(!formState.slices_of_bread){
             spiciness_scaleError="Set amount of bread slices"
             changeState(prevState=>({...prevState, ...initialErrors, slices_of_breadError}))
@@ -93,8 +96,7 @@ const handleSubmit = event=>{
     const isValid=validateForm()
     if(isValid){
     event.preventDefault()
-    // sendData()
-    console.log(formState)
+    sendData()
     }
     else {
         event.preventDefault()
@@ -124,26 +126,26 @@ const handleSubmit = event=>{
             value={formState.type} 
             onChange={event=>{changeState(prevState=>({...prevState, type: event.target.value}))}}>
                 <option></option>
-                <option>Pizza</option>
-                <option>Soup</option>
-                <option>Sandwich</option>
+                <option>pizza</option>
+                <option>soup</option>
+                <option>sandwich</option>
         </select>
         <div className="input__error-message">{formState.typeError}</div>
-        {formState.type=="Pizza" ? 
+        {formState.type=="pizza" ? 
         <>
-        <input name="no_of_slices" type="number" value={formState.no_of_slices} onChange={event=>{changeState(prevState=>({...prevState, no_of_slices:event.target.value}))}}/>
+        <input name="no_of_slices" type="number" value={formState.no_of_slices} onChange={event=>{changeState(prevState=>({...prevState, no_of_slices:event.target.valueAsNumber}))}}/>
         <div className="input__error-message">{formState.no_of_slicesError}</div>
-        <input name="diameter" type="number" value={formState.diameter} onChange={event=>{changeState(prevState=>({...prevState, diameter:event.target.value}))}}/>
+        <input name="diameter" type="number" value={formState.diameter} onChange={event=>{changeState(prevState=>({...prevState, diameter:event.target.valueAsNumber}))}}/>
         <div className="input__error-message">{formState.diameterError}</div>
         </>
-        : formState.type=="Soup" ?
+        : formState.type=="soup" ?
         <>
-        <input name="spiciness_scale" type="number" value={formState.spiciness_scale} onChange={event=>{changeState(prevState=>({...prevState, spiciness_scale:event.target.value}))}}/>
+        <input name="spiciness_scale" type="number" value={formState.spiciness_scale} onChange={event=>{changeState(prevState=>({...prevState, spiciness_scale:event.target.valueAsNumber}))}}/>
         <div className="input__error-message">{formState.spiciness_scaleError}</div>
         </>
         : 
         <>
-        <input name="slices_of_bread" type="number" value={formState.slices_of_bread} onChange={event=>{changeState(prevState=>({...prevState, slices_of_bread:event.target.value}))}}/>
+        <input name="slices_of_bread" type="number" value={formState.slices_of_bread} onChange={event=>{changeState(prevState=>({...prevState, slices_of_bread:event.target.valueAsNumber}))}}/>
         <div className="input__error-message">{formState.slices_of_breadError}</div>
         </>
     }
