@@ -1,9 +1,9 @@
-.page{
-    &__wrap{
-        @include setFlex(column,center,center);
-        width:100vw;
-        height: 100vh;
-        background-image: url("../../../images/background.jpg");
-        background-size: cover;
-    }
+.page {
+  &__wrap {
+    @include setFlex(column, center, center);
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../../images/background.jpg");
+    background-size: cover;
+  }
 }
